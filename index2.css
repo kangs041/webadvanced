@@ -1,0 +1,47 @@
+.content {
+    position: fixed;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+}
+#left-column { 
+
+  background-color: #001f3f;
+      float: left;
+      padding: 5%;
+      width: 40%;
+      position: relative;
+
+ }
+ #right-column {background-color: #001f3f;
+      float:right;
+      padding: 5%;
+      width: 40%;
+      position: relative;
+}
+
+h1 {   font-size:20px;
+  color: white;
+  font-family: sans-serif;
+  }
+ul {   font-size:20px;
+  color: white;
+  font-family: sans-serif;
+  }
+
+a{
+  font-size:20px;
+  color: white;
+  font-family: sans-serif;
+}
+p {
+  color: white;
+  font-size: 30px;
+}
+ul {
+  left: 30px;
+  padding-left: 5px;
+  position: relative;
+}
