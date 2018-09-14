@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+
+html {
+	background-color: black;
+}
+.box {
+    width: 30px;
+    border: 25px solid green;
+    padding: 25px;
+    margin: 25px;
+}
+.circle {
+	width: 100px;
+	height: 100px;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+	border: 25px solid red;
+	display: inline-grid;
+}
+
+	</style>
+
+
+</head>
+<body>
+
+	<div id="wrapper"></div>
+
+
+	<script type="text/javascript">
+		
+
+		var myArray = [
+
+			["2"],
+			["3"],
+			["4"],
+			["5"],
+			["6"],
+			["7"],
+			["8"],
+			["9"],
+			["0"],
+			["2"],
+			["3"],
+			["4"],
+			["5"],
+			["6"],
+			["7"],
+			["8"],
+			["9"],
+			["0"],
+						["2"],
+			["3"],
+			["4"],
+			["5"],
+			["6"],
+			["7"],
+			["8"],
+			["9"],
+			["0"],
+						["2"],
+			["3"],
+			["4"],
+			["5"],
+			["6"],
+			["7"],
+			["8"],
+			["9"],
+			["0"],
+						["2"],
+			["3"],
+			["4"],
+			["5"],
+			["6"],
+			["7"],
+			["8"],
+			["9"],
+			["0"],
+						["2"],
+			["3"],
+			["4"],
+			["5"],
+			["6"],
+			["7"],
+			["8"],
+			["9"],
+			["0"],
+		];
+
+
+		for (var i =1 ; i < myArray.length; i++) {
+
+			var element = document.createElement("div")
+			element.className = "circle"
+
+			var arrayValue = myArray[i];
+			var arrayValueOne = arrayValue[1];
+
+
+			var style = "";
+
+			if ( myArray[i] % 2  == 0 ) {
+				element.style.borderColor = "pink"
+			}else{
+				element.style.borderColor = "grey"
+			}
+
+
+
+			if ( myArray[i] % 3  == 0 ) {
+				element.style.backgroundColor = "lightblue"
+			}else{
+				element.style.backgroundColor = "lightgrey"
+			}
+
+			if ( myArray[i] % 7  == 0 ) {
+				element.style.borderStyle = "dotted"
+			}else{
+				element.style.borderStyle = "solid"
+			}
+						if ( myArray[i] % 5  == 0 ) {
+				element.style.borderRadius = "50px"
+			}else{
+				element.style.borderRadius = "100px"
+			}
+
+
+
+							
+			document.getElementById("wrapper").appendChild(element)
+
+		}
+
+	</script>
+</body>
+</html>
