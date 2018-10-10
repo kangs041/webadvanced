@@ -9,12 +9,14 @@
 html {
 	background-color: black;
 }
-.box {
-    width: 30px;
-    border: 25px solid green;
-    padding: 25px;
-    margin: 25px;
+html, body, div {
+	padding: 10;
+	margin: 10;
+	font-size: 0;
 }
+#wrapper {
+			width: 100vw;
+		}
 .circle {
 	width: 100px;
 	height: 100px;
@@ -94,7 +96,10 @@ html {
 			["9"],
 			["0"],
 		];
+		var circleDiameter= 0;
+		var direction = false;
 
+		var totalLength = 100;
 
 		for (var i =1 ; i < myArray.length; i++) {
 

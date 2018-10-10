@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+
+html {
+	background-color: white;
+}
+
+.rectangle{
+	width: 50px;
+	height: 50px;
+	display: inline-grid;
+	border-radius: 50px;
+	border: 20px solid red;
+}
+		.circle {
+	position: absolute;
+	border-radius: 50%;
+	border: 25px solid black;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%); 
+	}
+	</style>
+
+
+</head>
+<body>
+
+	<div id="wrapper"></div>
+
+
+	<script type="text/javascript">
+		
+
+		var myArray = [
+
+			["2"],
+			["3"],
+			["4"],
+			["5"],
+			["6"],
+			["7"],
+			["8"],
+			["9"],
+			["0"]
+				];
+
+
+		var circleDiameter= 0;
+		var direction = false;
+
+		var totalLength = 100;
+		var counter = 0;
+		for (var i =1 ; i < 500; i++) {
+
+			var element = document.createElement("div")
+			element.className = "rectangle"
+
+			var arrayValue = myArray[counter];
+			var arrayValueOne = arrayValue[1];
+
+
+			var style = "";
+
+			if ( myArray[counter] % 2  == 0 ) {
+				element.style.borderColor = "black"
+			}else{
+				element.style.borderColor = "red"
+			}
+
+
+			if ( i % 3  == 0 ) {
+				element.style.backgroundColor = "lightblue"
+			}else{
+				element.style.backgroundColor = "lightgrey"
+			}
+
+			if ( myArray[counter] % 7  == 0 ) {
+				element.style.borderStyle = "double"
+			}else{
+				element.style.borderStyle = "solid"
+			}
+			if ( myArray[i] % 5  == 0 ) {
+				element.style.borderRadius = "30px"
+			}else{
+				element.style.borderRadius = "50px"
+			}
+
+					
+				document.getElementById("wrapper").appendChild(element)
+
+					counter++;
+
+
+					if (counter >= myArray.length) {
+
+						counter = 0;
+
+					}
+
+				}
+
+		for (var i=0; i< totalLength; i++) {
+
+			var container = document.createElement("div");
+			container.className = "container";
+
+			if(!direction){
+				//if direction = false
+				circleDiameter++;
+			}else{
+				//if direction = true
+				circleDiameter--;
+				circleDiameter =1;
+			}
+
+
+
+			circleDiameter++;
+
+			//  if(circleDiameter ==10){
+			//	circleDiameter =0;
+			//  }
+			//two different ways to reset the direction
+			if (i % 5 ==0){
+				if(direction) {
+					//if direction is true, change it to false
+					direction = false;
+				}else {
+					//if direction is false, change it to true
+					direction = true;
+					circleDiameter =1;
+				}
+
+			}
+
+			if(!direction){
+				circleDiameter--;
+			}else {
+				circleDiameter++;
+			}
+
+			var opacity = circleDiameter / 10;
+			var progress = i/(totalLength-1);
+			var red = Math.ceil(255 - (progress*255));
+			var blue = Math.ceil(progress*255);
+
+			var color = "rgb(" + red + ", 0, " +blue + ")";
+
+
+				var percentage = circleDiameter /5;
+			container.innerHTML = `
+
+			<div style="background-color:${color}; opacity:${percentage}; width:${circleDiameter}vw; height:${circleDiameter}vw;" class="circle"></div>
+			`		
+
+			document.getElementById("wrapper").appendChild(container)
+
+
+		}
+	</script>
+</body>
+</html>

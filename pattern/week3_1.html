@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+
+html {
+	background-color: white;
+}
+html, body, div {
+	padding: 0;
+	margin: 0;
+	font-size: 0vw;
+}
+#wrapper {
+			width: 100vw;
+		}
+.container {
+	position:relative;
+	display: inline-block;
+	width: 12vw;
+	height: 12vw;
+		}		
+.circle {
+			position: absolute;
+			border-radius: 50%;
+			border: 25px solid black;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			}
+
+	</style>
+
+</head>
+<body>
+
+	<div id="wrapper"></div>
+
+	<script type="text/javascript">
+		
+
+
+		var circleDiameter = 0;
+		var direction = false;
+
+		var totalLength = 1000;
+
+
+		for (var i=0; i < totalLength; i++) {
+
+			var container = document.createElement("div")
+			container.className = "container";
+
+		if(!direction){
+				//if direction = false
+				circleDiameter++;
+			}else{
+				//if direction = true
+				circleDiameter--;
+				circleDiameter =1;
+		}
+
+
+		circleDiameter++;
+
+		if (i % 9 ==0){
+				if(direction) {
+					//if direction is true, change it to false
+					direction = false;
+				}else {
+					//if direction is false, change it to true
+					direction = true;
+					circleDiameter =.7;
+
+				}
+
+			}
+
+			if(!direction){
+				circleDiameter--;
+			}else {
+				circleDiameter++;
+			}
+
+			var opacity = circleDiameter / 5;
+			var progress = i/(totalLength-1);
+			var red = Math.ceil(255 - (progress*255));
+			var blue = Math.ceil(progress*255);
+
+			var color = "rgb(" + red + ", 0, " +blue + ")";
+
+
+				var percentage = circleDiameter /5;
+			container.innerHTML = `
+
+			<div style="background-color:${color}; opacity:${percentage}; width:${circleDiameter}vw; height:${circleDiameter}vw;" class="circle"></div>
+			`		
+
+
+			document.getElementById("wrapper").appendChild(container)
+
+
+		}
+
+
+
+
+	
+
+
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

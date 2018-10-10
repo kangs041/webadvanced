@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		
+#Mid {
+  width: 50px;
+  height: 55px;
+  border-radius: 50px;
+  background-color: pink;
+  position: absolute;
+  top: 50px;
+  left: 20px;
+  animation: spin 1s infinite linear;
+  opacity: 0.5;
+}
+#Mid:hover{
+	transition-duration: .4s;
+	opacity: 1;
+}
+
+#Small {
+  width: 200px;
+  height: 210px;
+  border-radius: 100px;
+  background-color: pink;
+  position: absolute;
+  top: 60px;
+  left: 130px;
+  animation: spin 4s infinite linear;
+    opacity: 0.5;
+}
+#Small:hover{
+	transition-duration: .4s;
+	opacity: 1;
+}
+#Big{
+  width: 20px;
+  height: 25px;
+  border-radius: 50px;
+  background-color: pink;
+  position: absolute;
+  top: 20px;
+  left: 100px;
+  animation: spin 1s infinite linear;
+  opacity: 0.5;
+}
+#Big:hover{
+	transition-duration: .4s;
+	opacity: 1;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+</style>
+
+
+</head>
+<body>
+<div id="wrapper"></div>
+<div id="Small"></div>
+<div id="Mid"></div>
+<div id="Big"></div>
+
+	<script type="text/javascript">
+
+
+
+	//////////
+document.addEventListener("mousemove",handleMouseMove)
+
+	function handleMouseMove(evt){
+		var x = (evt.pageX / window.innerWidth)*255
+		var y = (evt.pageY / window.innerHeight)*255
+
+   		x= Math.round(x)
+   		y= Math.round(y)
+
+      document.getElementById("Big").style.backgroundColor="rgb(" +x+ ",10,120)"
+		  document.getElementById("Small").style.backgroundColor="rgb(200," +x+ ",120)"
+			document.getElementById("Mid").style.backgroundColor="rgb(100,300," +x+ ")"
+   }
+
+
+window.addEventListener("click", onWindowClick)
+
+function onWindowClick(evt) {
+  console.log(evt.x, evt.y)
+
+var myBig =
+  document.getElementById("Big")
+  myBig.style.top = evt.y+"px"
+  myBig.style.left= evt.x+"px"
+
+var mySmall =
+  document.getElementById("Small")
+  mySmall.style.top = evt.y+"px"
+  mySmall.style.left= evt.x+"px"
+
+var myMid =
+  document.getElementById("Mid")
+  myMid.style.top = evt.y+"px"
+  myMid.style.left= evt.x+"px"
+}
+
+	
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+
+html,body{
+  margin: 0px;
+  padding: 0px;
+  background-color: white;
+  transition: all 1s;
+}
+
+.container{
+  width: 250px;
+  height: 250px;
+  margin-top: 0px;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  display: inline-block;
+}
+
+		
+.C1 {
+  width: 30px;
+  height: 35px;
+  border-radius: 50px;
+  background-color: black;
+  position: relative;
+  top: 50px;
+  left: 20px;
+  animation: spin 1s infinite linear;
+  opacity: 0.5;
+  border-color: white;
+  display: inline-block;
+}
+.C1:hover{
+	transition-duration: .4s;
+	opacity: 1;
+  background-color: red;
+}
+
+.C2 {
+  width: 20px;
+  height: 22px;
+  border-radius: 100px;
+  background-color: black;
+  position: relative;
+  top: 60px;
+  left: 180px;
+  animation: spin 4s infinite linear;
+  opacity: 0.5;
+  border-color: red;
+  display: inline-block;
+}
+.C2:hover{
+	transition-duration: .4s;
+	opacity: 1;
+  background-color: white;
+}
+.C3{
+  width: 20px;
+  height: 25px;
+  border-radius: 50px;
+  background-color: black;
+  position: relative;
+  top: 20px;
+  left: 100px;
+  animation: spin 1s infinite linear;
+  opacity: 0.5;
+  border-color: white;
+  display: inline-block; 
+}
+.C3:hover{
+	transition-duration: .4s;
+	opacity: 1;
+  background-color: hotpink;
+}
+
+.C4{
+  width: 40px;
+  height: 45px;
+  border-radius: 50px;
+  background-color: black;
+  position: relative;
+  top: 180px;
+  left: 100px;
+  animation: spin 1s infinite linear;
+  opacity: 0.5;
+  border-color: black;
+  display: inline-block;
+}
+.C4:hover{
+  transition-duration: .4s;
+  opacity: 1;
+  background-color: hotpink;
+}
+
+.C5{
+  width: 100px;
+  height: 97px;
+  border-radius: 100px;
+  background-color: black;
+  position: relative;
+  top: 50px;
+  left: 50px;
+  animation: spin 1s infinite linear;
+  opacity: 0.5;
+  border-color: darkblue;
+  display: inline-block;
+}
+
+.C5:hover{
+  transition-duration: .4s;
+  opacity: 1;
+  background-color: white;
+}
+
+.C6{
+  width: 26px;
+  height: 29px;
+  border-radius: 50px;
+  background-color: black;
+  position: relative;
+  top: 10px;
+  left: 30px;
+  animation: spin 1s infinite linear;
+  opacity: 0.5;
+  border-color: white;
+  display: inline-block;
+}
+.C6:hover{
+  transition-duration: .4s;
+  opacity: 1;
+  background-color: hotpink;
+}
+
+.C7{
+  width: 70px;
+  height: 65px;
+  border-radius: 100px;
+  background-color: black;
+  position: relative;
+  top: 90px;
+  left: 120px;
+  animation: spin 1s infinite linear;
+  opacity: 0.5;
+  border-color: grey;
+  display: inline-block;
+}
+.C7:hover{
+  transition-duration: .4s;
+  opacity: 1;
+  background-color: hotpink;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+</style>
+
+
+</head>
+<body>
+  <div id="wrapper">
+    <div class="C1"></div>
+    <div class="C2"></div>
+    <div class="C3"></div>
+    <div class="C4"></div>
+    <div class="C5"></div> 
+    <div class="C6"></div>
+    <div class="C7"></div>
+  </div>
+
+
+	<script type="text/javascript">
+	//////////
+ document.addEventListener("mousemove",handleMouseMove)
+
+ 	function handleMouseMove(evt){
+ 		var x = (evt.pageX / window.innerWidth)*255
+ 		var y = (evt.pageY / window.innerHeight)*255
+
+    		x= Math.round(x)
+    		y= Math.round(y)
+
+        var c1s = document.getElementsByClassName("C1")
+        for (var i = c1s.length - 1; i >= 0; i--) {
+          c1s[i].style.backgroundColor="rgb(" +x+ ",200,120)"
+          c1s[i].style.borderStyle="dotted"
+        }
+        var c2s = document.getElementsByClassName("C2")
+        for (var i = c2s.length - 1; i >= 0; i--) {
+          c2s[i].style.backgroundColor="rgb(200," +x+ ",120)"
+          c2s[i].style.borderStyle="double"
+        }
+        var c3s = document.getElementsByClassName("C3")
+        for (var i = c3s.length - 1; i >= 0; i--) {
+          c3s[i].style.backgroundColor="rgb(100,130," +x+ ")"
+          c3s[i].style.borderStyle="double"
+        }
+        var c4s = document.getElementsByClassName("C4")
+        for (var i = c4s.length - 1; i >= 0; i--) {
+          c4s[i].style.backgroundColor="rgb(" +x+ ",170,120)"
+          c4s[i].style.borderStyle="double"
+        }
+        var c5s = document.getElementsByClassName("C5")
+        for (var i = c5s.length - 1; i >= 0; i--) {
+          c5s[i].style.backgroundColor="rgb(200," +x+ ",200)"
+          c5s[i].style.borderStyle="double"
+        }  
+        var c6s = document.getElementsByClassName("C6")
+        for (var i = c6s.length - 1; i >= 0; i--) {
+          c6s[i].style.backgroundColor="rgb(200," +x+ ",200)"
+          c6s[i].style.borderStyle="double"
+        }                
+        var c7s = document.getElementsByClassName("C7")
+        for (var i = c7s.length - 1; i >= 0; i--) {
+          c7s[i].style.backgroundColor="rgb(" +x+ ",200,120)"
+          c7s[i].style.borderStyle="double"
+        } 
+    }
+
+
+      var counter = 0;
+
+
+ window.addEventListener("click", onWindowClick)
+
+ function onWindowClick(evt) {
+   console.log(evt.x, evt.y)
+
+   if(counter==0) {
+        var c1s = document.getElementsByClassName("C1")
+        for (var i = c1s.length - 1; i >= 0; i--) {
+          var myC1 = c1s[i]  
+          myC1.style.top = evt.y+"px"
+          myC1.style.left= evt.x+"px"
+           myC1.style.position="absolute"
+        } 
+
+      } else if (counter == 1){
+
+
+        var c2s = document.getElementsByClassName("C2")
+        for (var i = c2s.length - 1; i >= 0; i--) {
+          var myC2 = c2s[i]  
+          myC2.style.top = evt.y+"px"
+          myC2.style.left= evt.x+"px"
+          myC2.style.position="absolute"
+        }
+      } else if (counter == 2){
+        var c3s = document.getElementsByClassName("C3")
+        for (var i = c3s.length - 1; i >= 0; i--) {
+          var myC3 = c3s[i]  
+          myC3.style.top = evt.y+"px"
+          myC3.style.left= evt.x+"px"
+          myC3.style.position="absolute"
+        }
+      } else if (counter == 3 ){
+        var c4s = document.getElementsByClassName("C4")
+        for (var i = c4s.length - 1; i >= 0; i--) {
+          var myC4 = c4s[i]  
+          myC4.style.top = evt.y+"px"
+          myC4.style.left= evt.x+"px"
+          myC4.style.position="absolute"
+        }
+      } else if (counter == 4){
+        var c5s = document.getElementsByClassName("C5")
+        for (var i = c5s.length - 1; i >= 0; i--) {
+          var myC5 = c5s[i]  
+          myC5.style.top = evt.y+"px"
+          myC5.style.left= evt.x+"px"
+          myC5.style.position="absolute"
+        }
+      } else if (counter == 5){
+         var c6s = document.getElementsByClassName("C6")
+        for (var i = c6s.length - 1; i >= 0; i--) {
+          var myC6 = c6s[i]  
+          myC6.style.top = evt.y+"px"
+          myC6.style.left= evt.x+"px"
+          myC6.style.position="absolute"
+        }
+      } else {
+         var c7s = document.getElementsByClassName("C7")
+        for (var i = c7s.length - 1; i >= 0; i--) {
+          var myC7 = c7s[i]  
+          myC7.style.top = evt.y+"px"
+          myC7.style.left= evt.x+"px"
+          myC7.style.position="absolute"
+        }
+      }
+      if (counter == 7){
+        counter = 0
+      } else {
+        counter = counter + 1
+      }
+ }
+
+
+    var totalLength = 50;
+    var interval = 0;
+
+
+    for (var i = 0; i < totalLength; i++) {
+
+      setTimeout(function(){
+
+      var container = document.createElement("div");
+      container.className = "container";
+
+
+
+      container.innerHTML = `
+
+      <div class="C1"></div>
+      <div class="C2"></div>
+      <div class="C3"></div>
+      <div class="C4"></div>
+      <div class="C5"></div>
+      <div class="C6"></div>
+      <div class="C7"></div>
+      `
+
+      document.getElementById("wrapper").appendChild(container);
+
+      //window.scrollTo(0, document.body.scrollHeight);
+
+      }, interval);
+      
+          interval+=100;
+    }
+
+	
+	</script>
+</body>
+</html>
