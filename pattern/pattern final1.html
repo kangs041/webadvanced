@@ -9,7 +9,7 @@
 html,body{
   margin: 0px;
   padding: 0px;
-  background-color: black;
+  background-color: white;
   transition: all 1s;
 }
 
@@ -21,6 +21,7 @@ html,body{
   padding: 0px;
   position: relative;
   display: inline-block;
+
 }
 
 		
@@ -36,6 +37,7 @@ html,body{
   opacity: 0.5;
   border-color: white;
   display: inline-block;
+    transition: all 2s;
 }
 .C1:hover{
 	transition-duration: .4s;
@@ -55,6 +57,7 @@ html,body{
   opacity: 0.5;
   border-color: red;
   display: inline-block;
+    transition: all 2s;
 }
 .C2:hover{
 	transition-duration: .4s;
@@ -73,6 +76,7 @@ html,body{
   opacity: 0.5;
   border-color: white;
   display: inline-block; 
+    transition: all 2s;
 }
 .C3:hover{
 	transition-duration: .4s;
@@ -92,6 +96,7 @@ html,body{
   opacity: 0.5;
   border-color: black;
   display: inline-block;
+    transition: all 2s;
 }
 .C4:hover{
   transition-duration: .4s;
@@ -111,6 +116,7 @@ html,body{
   opacity: 0.5;
   border-color: darkblue;
   display: inline-block;
+    transition: all 2s;
 }
 
 .C5:hover{
@@ -131,6 +137,7 @@ html,body{
   opacity: 0.5;
   border-color: white;
   display: inline-block;
+    transition: all 2s;
 }
 .C6:hover{
   transition-duration: .4s;
@@ -150,6 +157,7 @@ html,body{
   opacity: 0.5;
   border-color: grey;
   display: inline-block;
+    transition: all 2s;
 }
 .C7:hover{
   transition-duration: .4s;
@@ -209,12 +217,12 @@ html,body{
         }
         var c4s = document.getElementsByClassName("C4")
         for (var i = c4s.length - 1; i >= 0; i--) {
-          c4s[i].style.backgroundColor="rgb(" +x+ ",170,120)"
+          c4s[i].style.backgroundColor="rgb(" +x+ ",370,220)"
           c4s[i].style.borderStyle="double"
         }
         var c5s = document.getElementsByClassName("C5")
         for (var i = c5s.length - 1; i >= 0; i--) {
-          c5s[i].style.backgroundColor="rgb(200," +x+ ",200)"
+          c5s[i].style.backgroundColor="rgb(40," +x+ ",200)"
           c5s[i].style.borderStyle="double"
         }  
         var c6s = document.getElementsByClassName("C6")
@@ -224,7 +232,7 @@ html,body{
         }                
         var c7s = document.getElementsByClassName("C7")
         for (var i = c7s.length - 1; i >= 0; i--) {
-          c7s[i].style.backgroundColor="rgb(" +x+ ",200,120)"
+          c7s[i].style.backgroundColor="rgb(" +x+ ",30,20)"
           c7s[i].style.borderStyle="double"
         } 
     }
@@ -244,7 +252,7 @@ html,body{
           var myC1 = c1s[i]  
           myC1.style.top = evt.y+"px"
           myC1.style.left= evt.x+"px"
-           myC1.style.position="absolute"
+          myC1.style.position="absolute"
         } 
 
       } else if (counter == 1){

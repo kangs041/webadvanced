@@ -9,7 +9,7 @@
 html,body{
   margin: 0px;
   padding: 0px;
-  background-color: white;
+  background-color: black;
   transition: all 1s;
 }
 
@@ -26,16 +26,18 @@ html,body{
 		
 .C1 {
   width: 30px;
-  height: 35px;
+  height: 33px;
   border-radius: 50px;
+  border-width: thick 5px;
   background-color: black;
-  position: relative;
+  position: absolute;
   top: 50px;
   left: 20px;
-  animation: spin 1s infinite linear;
+  animation: spin 3s infinite linear;
   opacity: 0.5;
   border-color: white;
   display: inline-block;
+  transition: all 1s;
 }
 .C1:hover{
 	transition-duration: .4s;
@@ -47,14 +49,16 @@ html,body{
   width: 20px;
   height: 22px;
   border-radius: 100px;
+  border-width: thick 5px;
   background-color: black;
-  position: relative;
+  position: absolute;
   top: 60px;
   left: 180px;
   animation: spin 4s infinite linear;
   opacity: 0.5;
   border-color: red;
   display: inline-block;
+  transition: all 1s; 
 }
 .C2:hover{
 	transition-duration: .4s;
@@ -63,16 +67,18 @@ html,body{
 }
 .C3{
   width: 20px;
-  height: 25px;
+  height: 18px;
   border-radius: 50px;
   background-color: black;
-  position: relative;
+  border-width: medium 5px;
+  position: absolute;
   top: 20px;
   left: 100px;
-  animation: spin 1s infinite linear;
+  animation: spin 3s infinite linear;
   opacity: 0.5;
   border-color: white;
   display: inline-block; 
+    transition: all 1s;
 }
 .C3:hover{
 	transition-duration: .4s;
@@ -84,14 +90,16 @@ html,body{
   width: 40px;
   height: 45px;
   border-radius: 50px;
+  border-width: thick 5px;
   background-color: black;
-  position: relative;
+  position: absolute;
   top: 180px;
   left: 100px;
   animation: spin 1s infinite linear;
   opacity: 0.5;
   border-color: black;
   display: inline-block;
+    transition: all 1s;
 }
 .C4:hover{
   transition-duration: .4s;
@@ -100,17 +108,19 @@ html,body{
 }
 
 .C5{
-  width: 100px;
-  height: 97px;
+  width: 35px;
+  height: 30px;
   border-radius: 100px;
+    border-width: thick 5px;
   background-color: black;
-  position: relative;
+  position: absolute;
   top: 50px;
-  left: 50px;
-  animation: spin 1s infinite linear;
+  left: 60px;
+  animation: spin 3s infinite linear;
   opacity: 0.5;
   border-color: darkblue;
   display: inline-block;
+    transition: all 1s;
 }
 
 .C5:hover{
@@ -123,14 +133,16 @@ html,body{
   width: 26px;
   height: 29px;
   border-radius: 50px;
+    border-width: thick 5px;
   background-color: black;
-  position: relative;
+  position: absolute;
   top: 10px;
   left: 30px;
-  animation: spin 1s infinite linear;
+  animation: spin 5s infinite linear;
   opacity: 0.5;
   border-color: white;
   display: inline-block;
+    transition: all 1s;
 }
 .C6:hover{
   transition-duration: .4s;
@@ -139,17 +151,19 @@ html,body{
 }
 
 .C7{
-  width: 70px;
-  height: 65px;
+  width: 40px;
+  height: 42px;
   border-radius: 100px;
+    border-width: thick 5px;
   background-color: black;
-  position: relative;
+  position: absolute;
   top: 90px;
   left: 120px;
-  animation: spin 1s infinite linear;
+  animation: spin 3s infinite linear;
   opacity: 0.5;
   border-color: grey;
   display: inline-block;
+  transition: all 1s;
 }
 .C7:hover{
   transition-duration: .4s;
@@ -194,38 +208,38 @@ html,body{
 
         var c1s = document.getElementsByClassName("C1")
         for (var i = c1s.length - 1; i >= 0; i--) {
-          c1s[i].style.backgroundColor="rgb(" +x+ ",200,120)"
+          
           c1s[i].style.borderStyle="dotted"
         }
         var c2s = document.getElementsByClassName("C2")
         for (var i = c2s.length - 1; i >= 0; i--) {
-          c2s[i].style.backgroundColor="rgb(200," +x+ ",120)"
+          c2s[i].style.borderColor="rgb(500," +x+ ",520)"
           c2s[i].style.borderStyle="double"
         }
         var c3s = document.getElementsByClassName("C3")
         for (var i = c3s.length - 1; i >= 0; i--) {
-          c3s[i].style.backgroundColor="rgb(100,130," +x+ ")"
-          c3s[i].style.borderStyle="double"
+          c3s[i].style.borderColor="rgb(500,530," +x+ ")"
+          c3s[i].style.borderStyle="dotted"
         }
         var c4s = document.getElementsByClassName("C4")
         for (var i = c4s.length - 1; i >= 0; i--) {
-          c4s[i].style.backgroundColor="rgb(" +x+ ",170,120)"
+          c4s[i].style.borderColor="rgb(" +x+ ",570,520)"
           c4s[i].style.borderStyle="double"
         }
         var c5s = document.getElementsByClassName("C5")
         for (var i = c5s.length - 1; i >= 0; i--) {
-          c5s[i].style.backgroundColor="rgb(200," +x+ ",200)"
+          c5s[i].style.borderColor="rgb(500," +x+ ",500)"
           c5s[i].style.borderStyle="double"
         }  
         var c6s = document.getElementsByClassName("C6")
         for (var i = c6s.length - 1; i >= 0; i--) {
-          c6s[i].style.backgroundColor="rgb(200," +x+ ",200)"
+          c6s[i].style.borderColor="rgb(500," +x+ ",500)"
           c6s[i].style.borderStyle="double"
         }                
         var c7s = document.getElementsByClassName("C7")
         for (var i = c7s.length - 1; i >= 0; i--) {
-          c7s[i].style.backgroundColor="rgb(" +x+ ",200,120)"
-          c7s[i].style.borderStyle="double"
+          c7s[i].style.borderColor="rgb(" +x+ ",500,520)"
+          c7s[i].style.borderStyle="dotted"
         } 
     }
 
@@ -244,7 +258,9 @@ html,body{
           var myC1 = c1s[i]  
           myC1.style.top = evt.y+"px"
           myC1.style.left= evt.x+"px"
-           myC1.style.position="absolute"
+          myC1.style.position="absolute"
+          myC1.style.width="100px"
+          myC1.style.height="100px"
         } 
 
       } else if (counter == 1){
@@ -319,6 +335,11 @@ html,body{
 
 
 
+
+
+
+
+
       container.innerHTML = `
 
       <div class="C1"></div>
@@ -333,11 +354,14 @@ html,body{
       document.getElementById("wrapper").appendChild(container);
 
       //window.scrollTo(0, document.body.scrollHeight);
-
+   
       }, interval);
       
           interval+=100;
     }
+
+
+    /////
 
 	
 	</script>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Pattern</title>
+	<style type="text/css">
+
+
+html, body, div {
+	padding: 0;
+	margin: 0;
+	font-size: 0vw;
+	background-color: black;
+}
+.day{
+	background-color:yellow;
+	width: 30px;
+	height: 30px;
+  	position: absolute;
+  	top: 50%;
+  	left: 30%;
+	transition: all 5s;
+	animation: spin 4s infinite linear;
+}
+.night{
+	background-color:white;
+	width: 50px;
+	height: 50px;
+  	position: absolute;
+  	top: 50%;
+  	left: 50%;
+	transition: all 5s;
+	animation: spin 4s infinite linear;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+@keyframes shadow-pop-tr {
+  0% {
+    box-shadow: 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e, 0 0 #3e3e3e;
+    -webkit-transform: translateX(0) translateY(0);
+            transform: translateX(0) translateY(0);
+  }
+  100% {
+    box-shadow: 1px -1px #3e3e3e, 2px -2px #3e3e3e, 3px -3px #3e3e3e, 4px -4px #3e3e3e, 5px -5px #3e3e3e, 6px -6px #3e3e3e, 7px -7px #3e3e3e, 8px -8px #3e3e3e;
+    -webkit-transform: translateX(-8px) translateY(8px);
+            transform: translateX(-8px) translateY(8px);
+  }
+}
+
+
+</style>
+
+
+</head>
+<body>
+
+
+<a href="pattern final1.html"><div class="day"></div></a>
+<a href="pattern final2.html"><div class="night"></div></a>
+
+	
+
+
+	<script type="text/javascript">
+
+
+
+
+	</script>
+</body>
+</html>
