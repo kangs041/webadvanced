@@ -5,21 +5,23 @@
 
   <style type="text/css">
 
+    body, html{
+      width: 100vw;
+      height: 100vh;
+    }
+
     .container{
       width: 100vw;
     }
 
     .circle{
-  width: 30px;
-  height: 35px;
-  border-radius: 50px;
-  background-color: pink;
-  top: 50px;
-  left: 20px;
-  opacity: 0.5;
-  border-color: white;
-  display: inline-block;
-}
+        display: inline-block;
+        margin: 10px;
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        background-color: red;
+    }       
 
   </style>
 
@@ -40,31 +42,37 @@
 
   <script type="text/javascript">
     
-    //create array
-    var allCircles =  [],
-    circle     =  '<div class="circle" />';
+    var allCircles = [],
+        circle = "<div class='circle'></div>"; // create an empty array (allCircles) and a string to repeatedly add to the array
 
-    if(Cookies.getJSON('circles')){ // if the cookie already exists
     
-      // get the contents of the cookie and equate it to a variable:
-      var existingCircles = Cookies.getJSON('circles'); 
+    if (Cookies.getJSON('allCircles')) { // check if there is a cookie named "allCircles"
 
-      /* Now we want to iterate through our retrieved array and output each value */
-      for (var i = 0; i < existingCircles.length; i++) { // for loop that appends each circle to the DOM
-          $(".container").append(existingCircles[i]); 
+      console.log("there are cookies!");
+      allCircles = Cookies.getJSON('allCircles'); // if there is a cookie named "allCircles", update existing array to reflect this
+
+      for (var i = 0; i < allCircles.length; i++) {
+        $(".container").append(allCircles[i]); // cycle through (updated) array and populate the DOM with the circles
       }
-
-      // once the loop is done appending the circles, create a new circle:
-      existingCircles.push(circle);
-      Cookies.set('circles', existingCircles, {expires: 10});
-
-
-    }else{ // if the cookie doesn't already exist
-
-        allCircles.push(circle); //push the first 'circle' the array allCircles
-        Cookies.set('circles', allCircles, {expires: 10}); // set the cookie 'circles', define its value, and its expiration date
     }
+
+
+    $("body").click(function(){
+      $(".container").append(circle); // add circle to DOM
+      allCircles.push(circle); // add circle to array 
+      Cookies.set('allCircles', allCircles, {expires: 10}); // add array of circles to cookie
+    })
+    
 
   </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
