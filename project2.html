@@ -1,40 +1,78 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>My website</title>
+<head>
+  <title>Javascript Cookie</title>
 
-    <link rel="stylesheet"
-          href="index2.css"/>
-          <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
-  <video autoplay muted id="myVideo">
-<source src="logo.mp4" type="video/mp4" width="400px">
-</video>
-  <body>
+  <style type="text/css">
 
-    <div id="left-column" class="content">
-    <h1>Studio</h1>
-    <ul>
-      <li><a href="pattern/pattern intro.html">Pattern</a></li>
-      <li><a href="cookie.html">cookie111</a></li>
-      <li><a href="cookie2.html">cookie2</a></li>
-      <li><a href=".html">project4</a></li>
-       <li><a href=".html">project5</a></li>
-    </ul>
-  </div>
+    body, html{
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .container{
+      width: 100vw;
+    }
+
+    .circle{
+        display: inline-block;
+        margin: 10px;
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        background-color: red;
+    }       
+
+  </style>
+
+  <!-- Load jquery -->
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+  <!-- Load the javascript cookie library -->
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 
 
-    <div id="right-column" class="content">
-    <h1>portfolio</h1>
-    <ul>
-      <li><a href=".html">assignment1</a></li>
-      <li><a href=".html">assignment2</a></li>
-      <li><a href=".html">assignment3</a></li>
-      <li><a href=".html">assignment4</a></li>
-    </ul>
-  </div>
+</head>
+<body>
 
-    <script="index2.js"></script>
-  </body>
-</script>
+  <div class="container"></div>
+
+  <script type="text/javascript">
+    
+    var allCircles = [],
+        circle = "<div class='circle'></div>"; // create an empty array (allCircles) and a string to repeatedly add to the array
+
+    
+    if (Cookies.getJSON('allCircles')) { // check if there is a cookie named "allCircles"
+
+      console.log("there are cookies!");
+      allCircles = Cookies.getJSON('allCircles'); // if there is a cookie named "allCircles", update existing array to reflect this
+
+      for (var i = 0; i < allCircles.length; i++) {
+        $(".container").append(allCircles[i]); // cycle through (updated) array and populate the DOM with the circles
+      }
+    }
+
+
+    $("body").click(function(){
+      $(".container").append(circle); // add circle to DOM
+      allCircles.push(circle); // add circle to array 
+      Cookies.set('allCircles', allCircles, {expires: 10}); // add array of circles to cookie
+    })
+    
+
+  </script>
+</body>
 </html>
+
+
+
+
+
+
+
+
+
