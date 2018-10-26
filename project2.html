@@ -1,67 +1,58 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Javascript Cookie</title>
+<meta charset="utf-8">
+<title>Transform Transitions</title>
+<style>
 
-  <style type="text/css">
+body {
+  margin: 0;
+}
 
-    .container{
-      width: 100vw;
-    }
+rect {
+  stroke: #fff;
+  stroke-width: .1px;
+}
 
-    .circle{
-        display: inline-block;
-        margin: 10px;
-        width: 40px;
-        height: 40px;
-        border-radius: 20px;
-        background-color: pink;
-    }       
-
-  </style>
-
-  <!-- Load jquery -->
-  <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
-
-  <!-- Load the javascript cookie library -->
-  <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-
-
-</head>
+</style>
 <body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script>
 
-  <div class="container"></div>
+var w = 960,
+    h = 500,
+    z = 20,
+    x = w / z,
+    y = h / z;
 
-  <script type="text/javascript">
-    
-    //create array
-    var allCircles =  [],
-    circle     =  '<div class="circle" />';
+var svg = d3.select("body").append("svg")
+    .attr("width", w)
+    .attr("height", h);
 
-    if(Cookies.getJSON('circles')){ // if the cookie already exists
-    
-      // get the contents of the cookie and equate it to a variable:
-      var existingCircles = Cookies.getJSON('circles'); 
+svg.selectAll("rect")
+    .data(d3.range(x * y))
+  .enter().append("rect")
+    .attr("transform", translate)
+    .attr("width", z)
+    .attr("height", z)
+    .style("fill", function(d) { return d3.hsl(d % x / x * 360, 1, Math.floor(d / x) / y); })
+    .on("mouseover", mouseover);
 
-      /* Now we want to iterate through our retrieved array and output each value */
-      for (var i = 0; i < existingCircles.length; i++) { // for loop that appends each circle to the DOM
-          $(".container").append(existingCircles[i]); 
-      }
+function translate(d) {
+  return "translate(" + (d % x) * z + "," + Math.floor(d / x) * z + ")";
+}
 
-      // once the loop is done appending the circles, create a new circle:
-      existingCircles.push(circle);
-      Cookies.set('circles', existingCircles, {expires: 10});
+function mouseover(d) {
+  this.parentNode.appendChild(this);
 
+  d3.select(this)
+      .style("pointer-events", "none")
+    .transition()
+      .duration(750)
+      .attr("transform", "translate(480,480)scale(23)rotate(180)")
+    .transition()
+      .delay(1500)
+      .attr("transform", "translate(240,240)scale(0)")
+      .style("fill-opacity", 0)
+      .remove();
+}
 
-    }else{ // if the cookie doesn't already exist
-
-        allCircles.push(circle); //push the first 'circle' the array allCircles
-        Cookies.set('circles', allCircles, {expires: 10}); // set the cookie 'circles', define its value, and its expiration date
-    }
-
-  </script>
-</body>
-</html>
+</script>
