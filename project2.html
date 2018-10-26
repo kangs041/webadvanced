@@ -40,7 +40,7 @@ function translate(d) {
   return "translate(" + (d % x) * z + "," + Math.floor(d / x) * z + ")";
 }
 
-function mouseClick(d) {
+function onClick(d) {
   this.parentNode.appendChild(this);
 
   d3.select(this)
