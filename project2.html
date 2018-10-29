@@ -16,23 +16,13 @@ rect {
 <body>
 <script src="//d3js.org/d3.v3.min.js"></script>
 <script>
+setInterval(update, 1000)
+  var hour = date.getHours()
+  var minute = now.getMinutes()
+  now = now.toTimeString() 
 
-
-(function () {
-  'use strict';
-    function RGBFromDate(date) {
-    return [
-      (date.getHours()   / 24 * 255),
-      (date.getMinutes() / 60 * 255),
-      (date.getSeconds() / 60 * 255)
-    ].map(Math.round);
-  }
-  function colorLuminance(red, green, blue) {
-    return ((0.299 * red) + (0.587 * green) + (0.114 * blue)) / 256;
-  }
-  function colorFromRGB(red, green, blue) {
-    return colorLuminance(red, green, blue) > 0.7 ? 'black' : 'white';
-  }
+  clockHolder.innerHTML = now
+  setInterval(updateTime, 1000)*
 
 var w = 960,
     h = 500,
