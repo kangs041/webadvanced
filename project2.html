@@ -17,6 +17,9 @@ rect {
 <script src="//d3js.org/d3.v3.min.js"></script>
 <script>
 
+
+(function () {
+  'use strict';
     function RGBFromDate(date) {
     return [
       (date.getHours()   / 24 * 255),
@@ -24,8 +27,12 @@ rect {
       (date.getSeconds() / 60 * 255)
     ].map(Math.round);
   }
-
- 
+  function colorLuminance(red, green, blue) {
+    return ((0.299 * red) + (0.587 * green) + (0.114 * blue)) / 256;
+  }
+  function colorFromRGB(red, green, blue) {
+    return colorLuminance(red, green, blue) > 0.7 ? 'black' : 'white';
+  }
 
 var w = 960,
     h = 500,
