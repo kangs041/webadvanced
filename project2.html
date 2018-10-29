@@ -26,7 +26,7 @@ setInterval(update, 1000)
 
 var w = 960,
     h = 500,
-    z = 1,
+    z = 20,
     x = w / z,
     y = h / z;
 
@@ -41,13 +41,13 @@ svg.selectAll("rect")
     .attr("width", z)
     .attr("height", z)
     .style("fill", function(d) { return d3.hsl(d % x / x * 360, 1, Math.floor(d / x) / y); })
-    .on("mouseover", mouseover);
+    .on("mouseClick", mouseClick);
 
 function translate(d) {
   return "translate(" + (d % x) * z + "," + Math.floor(d / x) * z + ")";
 }
 
-function mouseover(d) {
+function mouseClick(d) {
   this.parentNode.appendChild(this);
 
   d3.select(this)
