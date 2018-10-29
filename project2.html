@@ -17,6 +17,16 @@ rect {
 <script src="//d3js.org/d3.v3.min.js"></script>
 <script>
 
+    function RGBFromDate(date) {
+    return [
+      (date.getHours()   / 24 * 255),
+      (date.getMinutes() / 60 * 255),
+      (date.getSeconds() / 60 * 255)
+    ].map(Math.round);
+  }
+
+ 
+
 var w = 960,
     h = 500,
     z = 20,
