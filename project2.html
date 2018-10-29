@@ -16,13 +16,6 @@ rect {
 <body>
 <script src="//d3js.org/d3.v3.min.js"></script>
 <script>
-setInterval(update, 1000)
-  var hour = date.getHours()
-  var minute = now.getMinutes()
-  now = now.toTimeString() 
-
-  clockHolder.innerHTML = now
-  setInterval(updateTime, 1000)*
 
 var w = 960,
     h = 500,
@@ -41,13 +34,13 @@ svg.selectAll("rect")
     .attr("width", z)
     .attr("height", z)
     .style("fill", function(d) { return d3.hsl(d % x / x * 360, 1, Math.floor(d / x) / y); })
-    .on("mouseClick", mouseClick);
+    .on("mouseover", mouseover);
 
 function translate(d) {
   return "translate(" + (d % x) * z + "," + Math.floor(d / x) * z + ")";
 }
 
-function mouseClick(d) {
+function mouseover(d) {
   this.parentNode.appendChild(this);
 
   d3.select(this)
