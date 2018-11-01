@@ -42,13 +42,13 @@ var w = 960,
     x = w / z,
     y = h / z;
 
-var svg = d3.select("body").append("svg")
+var svg = d3.select("body").append("container")
     .attr("width", w)
     .attr("height", h);
 
-svg.selectAll("rect")
+svg.selectAll("container")
     .data(d3.range(x * y))
- 	 .enter().append("rect")
+ 	 .enter().append("container")
     .attr("transform", translate)
     .attr("width", z)
     .attr("height", z)
