@@ -27,22 +27,37 @@ html, body, div {
 	</style>
 
 	<!-- Load jquery -->
-	<script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
 
-
-
-  
 
 </head>
 <body>
-
+	<script src="//d3js.org/d3.v3.min.js"></script>
 	<div class="container"></div>
-
 	<script type="text/javascript">
 		
+
+var w = 960,
+    h = 500,
+    z = 20,
+    x = w / z,
+    y = h / z;
+
+var svg = d3.select("body").append("svg")
+    .attr("width", w)
+    .attr("height", h);
+
+svg.selectAll("rect")
+    .data(d3.range(x * y))
+ 	 .enter().append("rect")
+    .attr("transform", translate)
+    .attr("width", z)
+    .attr("height", z)
+    .style("fill", function(d) { return d3.hsl(d % x / x * 360, 1, Math.floor(d / x) / y); })
+    .on("mouseover", mouseover);
+
+function translate(d) {
+  return "translate(" + (d % x) * z + "," + Math.floor(d / x) * z + ")";
+}
 		function mouseover(d) {
   this.parentNode.appendChild(this);
 
