@@ -2,78 +2,81 @@
 <html>
 <title>W3.CSS</title>
   <style type="text/css">
-
-    .container{
-      width: 1vw;
+  html {
+    background-color: black;
+  }
+  .container{
+      width: 100vw;
     }
-
-    .circle{
-        position: relative;
-        margin: 10px;
-        width: 40px;
-        height: 40px;
-        border-radius: 20px;
-        background-color: red;
-    }       
+  .circle {
+    widows: 10px;
+    height: 10px;
+    background-color: white;
+  }
 
   </style>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
   <script
- src="https://code.jquery.com/jquery-3.3.1.min.js"
- integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-crossorigin="anonymous"></script>
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
 
+  <!-- Load the javascript cookie library -->
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 
-  <div class="w3-container">
-  <div class="container">
-  <div id="box" class="w3-green" style="height:100vw;width:100vw; 
-    background-image: linear-gradient(to top, #678ec8, #7e92d7, #9a95e3, #b996eb, #d996ee);"></div>
+  <div id="box" style="height:40vw;width:40vw; 
+    background-image: linear-gradient(to top, #678ec8, #7e92d7, #9a95e3, #b996eb, #d996ee); border-radius: 50vw; margin-top:50px; margin-left: 20vw;"></div>
   </div>
 <body>
 
   <br>
-
-  <button class="w3-button w3-green" onclick="move()">Click Me</button> 
+  <button onclick="move()">Click Me</button> 
 </div>
-
+  <div class="container"></div>
 <script>
 
-  var allCircles =  [],
-    circle     =  '<div class="circle" />';
+    var allCircles = [],
+        circle = "<div class='circle'></div>"; // create an empty array (allCircles) and a string to repeatedly add to the array
 
-    if(Cookies.getJSON('circles')){ // if the cookie already exists
     
-      // get the contents of the cookie and equate it to a variable:
-      var existingCircles = Cookies.getJSON('circles'); 
+    if (Cookies.getJSON('allCircles')) { // check if there is a cookie named "allCircles"
 
-      /* Now we want to iterate through our retrieved array and output each value */
-      for (var i = 0; i < existingCircles.length; i++) { // for loop that appends each circle to the DOM
-          $(".container").append(existingCircles[i]); 
+      console.log("there are cookies!");
+      allCircles = Cookies.getJSON('allCircles'); // if there is a cookie named "allCircles", update existing array to reflect this
+
+      for (var i = 0; i < allCircles.length; i++) {
+        $(".container").append(allCircles[i]); // cycle through (updated) array and populate the DOM with the circles
       }
-
-      // once the loop is done appending the circles, create a new circle:
-      existingCircles.push(circle);
-      Cookies.set('circles', existingCircles, {expires: 10});
-
-
-    }else{ // if the cookie doesn't already exist
-
-        allCircles.push(circle); //push the first 'circle' the array allCircles
-        Cookies.set('circles', allCircles, {expires: 10}); // set the cookie 'circles', define its value, and its expiration date
     }
+
+
+    $("body").click(function(){
+      $(".container").append(circle); // add circle to DOM
+      allCircles.push(circle); // add circle to array 
+      Cookies.set('allCircles', allCircles, {expires: 10}); // add array of circles to cookie
+    })
+
+
+
+
+
     function move() {
   var elem = document.getElementById("box");   
   var width = 1;
+  var height = 1;
   var id = setInterval(frame, 100);
   function frame() {
-    if (width >= 100) {
+    if (width >= 40) {
       clearInterval(id);
     } else {
       width++; 
       elem.style.width = width + '%'; 
+    }   
+
+     if (height >= 40) {
+      clearInterval(id);
+    } else {
+      height--; 
+      elem.style.height = height - '%'; 
     }
   }
 }
