@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Javascript Cookie</title>
+
+	<style type="text/css">
+
+html {
+	background-color: white;
+}
+html, body, div {
+	padding: 0;
+	margin: 0;
+	font-size: 0vw;
+}
+#wrapper {
+			width: 100vw;
+		}
+.container {
+	position:relative;
+	display: inline-block;
+	width: 100vw;
+	height: 100vw;
+	stroke-width:.1px;
+  	background: linear-gradient(70deg, blue, pink);
+			}  
+	</style>
+
+	<!-- Load jquery -->
+	<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+
+
+  
+
+</head>
+<body>
+
+	<div class="container"></div>
+
+	<script type="text/javascript">
+		
+		function mouseover(d) {
+  this.parentNode.appendChild(this);
+
+  d3.select(this)
+      .style("pointer-events", "none")
+    .transition()
+      .duration(750)
+      .attr("transform", "translate(480,480)scale(23)rotate(180)")
+    .transition()
+      .delay(1500)
+      .attr("transform", "translate(240,240)scale(0)")
+      .style("fill-opacity", 0)
+      .remove();
+}
+
+	</script>
+</body>
+</html>
+
+
+
