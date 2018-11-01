@@ -1,64 +1,83 @@
 <!DOCTYPE html>
 <html>
+<title>W3.CSS</title>
+  <style type="text/css">
 
-	<div class="progress-wrap progress" data-progress-percent="25">
-    <div class="progress-bar progress"></div>
-	</div>
-<head>
-	<title>Javascript Cookie</title>
+    .container{
+      width: 100vw;
+    }
 
-	<style type="text/css">
+    .circle{
+        display: inline-block;
+        margin: 10px;
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        background-color: red;
+    }       
 
-@import "compass/css3";
+  </style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-.progress {
-  width: 100%;
-  height: 50px;
-}
-.progress-wrap {
-  background: #f80;
-  margin: 20px 0;
-  overflow: hidden;
-  position: relative;
-  .progress-bar {
-    background: #ddd;
-    left: 0;
-    position: absolute;
-    top: 0;
+  <script
+ src="https://code.jquery.com/jquery-3.3.1.min.js"
+ integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+
+  <div class="w3-container">
+  <div class="container">
+  <div id="box" class="w3-green" style="height:100vw;width:100vw; 
+    background-image: linear-gradient(to top, #678ec8, #7e92d7, #9a95e3, #b996eb, #d996ee);"></div>
+  </div>
+<body>
+
+  <br>
+
+  <button class="w3-button w3-green" onclick="move()">Click Me</button> 
+</div>
+
+<script>
+
+  var allCircles =  [],
+    circle     =  '<div class="circle" />';
+
+    if(Cookies.getJSON('circles')){ // if the cookie already exists
+    
+      // get the contents of the cookie and equate it to a variable:
+      var existingCircles = Cookies.getJSON('circles'); 
+
+      /* Now we want to iterate through our retrieved array and output each value */
+      for (var i = 0; i < existingCircles.length; i++) { // for loop that appends each circle to the DOM
+          $(".container").append(existingCircles[i]); 
+      }
+
+      // once the loop is done appending the circles, create a new circle:
+      existingCircles.push(circle);
+      Cookies.set('circles', existingCircles, {expires: 10});
+
+
+    }else{ // if the cookie doesn't already exist
+
+        allCircles.push(circle); //push the first 'circle' the array allCircles
+        Cookies.set('circles', allCircles, {expires: 10}); // set the cookie 'circles', define its value, and its expiration date
+    }
+    function move() {
+  var elem = document.getElementById("box");   
+  var width = 1;
+  var id = setInterval(frame, 100);
+  function frame() {
+    if (width >= 100) {
+      clearInterval(id);
+    } else {
+      width++; 
+      elem.style.width = width + '%'; 
+    }
   }
 }
+</script>
 
-
-	</style>
-
-	<!-- Load jquery -->
-
-
-</head>
-<body>
-	<script<script src="//d3js.org/d3.v3.min.js">
-
-    $(window).resize(function() {
-        moveProgressBar();
-    });
-
-    // SIGNATURE PROGRESS
-    function moveProgressBar() {
-      console.log("moveProgressBar");
-        var getPercent = ($('.progress-wrap').data('progress-percent') / 100);
-        var getProgressWrapWidth = $('.progress-wrap').width();
-        var progressTotal = getPercent * getProgressWrapWidth;
-        var animationLength = 2500;
-        
-        // on page load, animate percentage bar to data percentage length
-        // .stop() used to prevent animation queueing
-        $('.progress-bar').stop().animate({
-            left: progressTotal
-        }, animationLength);
-    }
-	</script>
 </body>
-</html>
-
-
-
+</html> 
