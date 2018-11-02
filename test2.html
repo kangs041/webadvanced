@@ -147,9 +147,10 @@ function move() {
   var moon = document.getElementById("moon");  
   var width = 0;
   var height = 0;
+  var visit;
   var id = setInterval(frame, 50);
   function frame() {
-    if (visit > 3) {
+    if (visit > 3, width >65 ) {
       elem.style.width = width + '20%';
     } else {
       width++;
