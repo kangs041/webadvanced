@@ -94,6 +94,12 @@ var expires = (2 < argc) ? argv[2] : null;
 var path = (3 < argc) ? argv[3] : null;
 var domain = (4 < argc) ? argv[4] : null;
 var secure = (5 < argc) ? argv[5] : false;
+  var elem = document.getElementById("shadow"); 
+  var moon = document.getElementById("moon");  
+  var width = 0;
+  var height = 0;
+  var visit;
+  var id = setInterval(frame, 50);
 document.cookie = name + "=" + escape (value) +
 ((expires == null) ? "" : ("; expires=" + expires.toGMTString())) +
 ((path == null) ? "" : ("; path=" + path)) +
@@ -109,7 +115,8 @@ visit = 0;
 visit++;
 SetCookie("visit", visit, expdate, "/", null, false);
 var message;
-if(visit == 1) 
+if(visit == 1)
+elem.style.width = width + '10%'; 
 message="         🌚";
 if(visit== 2) 
 message="           🌘";
@@ -142,29 +149,7 @@ SetCookie("visit", visit, expdate , "/", null, false);
 history.go(10);
 }
 
-function move() {
-  var elem = document.getElementById("shadow"); 
-  var moon = document.getElementById("moon");  
-  var width = 0;
-  var height = 0;
-  var visit;
-  var id = setInterval(frame, 50);
-  function frame() {
-    if (visit > 3, width >65 ) {
-      elem.style.width = width + '20%';
-    } else {
-      width++;
-      elem.style.width = width + '20%';
-    }   
-
-     if (height > 65) {
-      clearInterval(id);
-    } else {
-      height++; 
-      elem.style.height = height + '%'; 
-    }
-  }
-}
+\
 
 window.onload=DisplayInfo
 
