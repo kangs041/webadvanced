@@ -189,31 +189,6 @@ history.go(10);
 }
 
 
-
-function move() {
-var expdate = new Date();
-var visit;
-expdate.setTime(expdate.getTime() +  (24 * 60 * 60 * 1000 * 365)); 
-if(!(visit = GetCookie("visit"))) 
-visit = 0;
-visit++;
-SetCookie("visit", visit, expdate, "/", null, false);  
-  var elem = document.getElementById("shadow");  
-  var width = 0;
-  var height = 0;
-  var id = setInterval(frame, 50);
-  function frame() {
-
-    if (visit) {
-      elem.style.width = '35vw';
-      elem.style.height = '35vw';
-      elem.style.border = '50vw';
-      elem.style.marginleft= '95px';
-      elem.style.margintop= '100px';
-    }        
-  }
-}
-
 window.onload=DisplayInfo
 
 </script>
