@@ -70,12 +70,14 @@
       var existingCircles = Cookies.getJSON('circles'); 
 
       /* Now we want to iterate through our retrieved array and output each value */
-      for (var i = 0; i < existingCircles.length; i++) { // for loop that appends each circle to the DOM
+      for (width >=65; var width = 0; width++; height >=65; 
+          height = 0; height++;) { 
           $(".container").append(existingCircles[i]); 
       }
 
       // once the loop is done appending the circles, create a new circle:
-      existingCircles.push(circle);
+      elem.style.width = width + '%'; 
+      elem.style.height = height + '%';
       Cookies.set('circles', existingCircles, {expires: 10});
 
 
