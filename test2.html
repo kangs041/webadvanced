@@ -100,6 +100,8 @@ document.cookie = name + "=" + escape (value) +
 ((domain == null) ? "" : ("; domain=" + domain)) +
 ((secure == true) ? "; secure" : "");
 }
+
+
 function DisplayInfo() {
 var expdate = new Date();
 var visit;
@@ -147,8 +149,8 @@ function move() {
   var visit;
   var id = setInterval(frame, 50);
   function frame() {
-    if (visit > 3, width >65 ) {
-      elem.style.width = width + '%';
+    if (width >65 ) {
+      clearInterval(id);
     } else {
       width++;
       elem.style.width = width + '%';
