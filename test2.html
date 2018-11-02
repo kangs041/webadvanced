@@ -104,6 +104,7 @@ document.cookie = name + "=" + escape (value) +
 
 function DisplayInfo() {
 var expdate = new Date();
+  var elem = document.getElementById("shadow");
 var visit;
 expdate.setTime(expdate.getTime() +  (24 * 60 * 60 * 1000 * 365)); 
 if(!(visit = GetCookie("visit"))) 
@@ -115,6 +116,11 @@ if(visit == 1)
 message="         🌚";
 if(visit== 2) 
 message="           🌘";
+      elem.style.width = '20vw';
+      elem.style.height = '20vw';
+      elem.style.border = '50vw';
+      elem.style.marginleft= '80px';
+      elem.style.margintop= '110px';
 if(visit == 3) 
 message="               🌙";
 if(visit == 4)
@@ -141,6 +147,8 @@ SetCookie("visit", visit, expdate , "/", null, false);
 history.go(10);
 }
 
+
+
 function move() {
 var expdate = new Date();
 var visit;
@@ -149,16 +157,12 @@ if(!(visit = GetCookie("visit")))
 visit = 0;
 visit++;
 SetCookie("visit", visit, expdate, "/", null, false);  
-  var elem = document.getElementById("shadow"); 
-  var moon = document.getElementById("moon");  
+  var elem = document.getElementById("shadow");  
   var width = 0;
   var height = 0;
   var id = setInterval(frame, 50);
   function frame() {
     if (visit >2 ) {
-      clearInterval(id);
-      width++;
-      height++;
       elem.style.width = '10vw';
       elem.style.height= '10vw';
       elem.style.border= '50vw';
@@ -166,8 +170,6 @@ SetCookie("visit", visit, expdate, "/", null, false);
       elem.style.margintop= '110px';
     } 
      if (visit>3) {
-      width++;
-      height++;
       elem.style.width = '20vw';
       elem.style.height = '20vw';
       elem.style.border = '50vw';
