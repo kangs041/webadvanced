@@ -156,13 +156,14 @@ SetCookie("visit", visit, expdate, "/", null, false);
   var id = setInterval(frame, 50);
   function frame() {
     if (visit >2 ) {
+      clearInterval(id);
       width++;
       height++;
       elem.style.width = '10vw';
       elem.style.height= '10vw';
       elem.style.border= '50vw';
-      elem.style.marginleft= '20px';
-      elem.style.margintop= '24vpx';
+      elem.style.marginleft= '83px';
+      elem.style.margintop= '110px';
     } 
      if (visit>3) {
       width++;
@@ -170,57 +171,57 @@ SetCookie("visit", visit, expdate, "/", null, false);
       elem.style.width = '20vw';
       elem.style.height = '20vw';
       elem.style.border = '50vw';
-      elem.style.marginleft= '20px';
-      elem.style.margintop= '24px';
+      elem.style.marginleft= '80px';
+      elem.style.margintop= '110px';
     } 
      if (visit>4) {
       elem.style.width = '30vw';
       elem.style.height = '30vw';
       elem.style.border = '50vw';
-      elem.style.marginleft= '20px';
-      elem.style.margintop= '20px';
+      elem.style.marginleft= '90px';
+      elem.style.margintop= '110px';
     } 
     if (visit>5) {
       elem.style.width = '35vw';
       elem.style.height = '35vw';
       elem.style.border = '50vw';
-      elem.style.marginleft= '21px';
-      elem.style.margintop= '20px';
+      elem.style.marginleft= '95px';
+      elem.style.margintop= '100px';
     } 
 
      if (visit>6) {
       elem.style.width = '40vw';
       elem.style.height = '40vw';
       elem.style.border = '50vw';
-      elem.style.marginleft= '20px';
-      elem.style.margintop= '15px';
+      elem.style.marginleft= '96px';
+      elem.style.margintop= '90px';
     } 
      if (visit>7) {
       elem.style.width = '50vw';
       elem.style.height = '50vw';
       elem.style.border = '50vw';
-      elem.style.marginleft= '20px';
-      elem.style.margintop= '10px';
+      elem.style.marginleft= '95px';
+      elem.style.margintop= '57px';
     }   
      if (visit>8) {
       elem.style.width = '55vw';
       elem.style.height = '55vw';
       elem.style.border = '50vw';
-      elem.style.marginleft= '20px';
-      elem.style.margintop= '7px';
+      elem.style.marginleft= '95px';
+      elem.style.margintop= '40px';
     }
      if (visit>9) {
       elem.style.width = '60vw';
       elem.style.height = '60vw';
       elem.style.border = '50vw';
-      elem.style.marginleft= '20px';
-      elem.style.margintop= '5px';
+      elem.style.marginleft= '87px';
+      elem.style.margintop= '21px';
     } 
      if (visit>=10) {
       elem.style.width = '70vw';
       elem.style.height = '70vw';
       elem.style.border = '50vw';
-      elem.style.marginleft= '19px';
+      elem.style.marginleft= '76px';
       elem.style.margintop= '-1px';
     }             
   }
