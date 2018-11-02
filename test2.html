@@ -86,28 +86,7 @@ break;
 }
 return null;
 }
-  function move() {
-  var elem = document.getElementById("shadow"); 
-  var moon = document.getElementById("moon");  
-  var width = 0;
-  var height = 0;
-  var id = setInterval(frame, 50);
-  function frame() {
-    if (width > 65) {
-      clearInterval(id);
-    } else {
-      width++; 
-      elem.style.width = width + '%'; 
-    }   
-
-     if (height > 65) {
-      clearInterval(id);
-    } else {
-      height++; 
-      elem.style.height = height + '%'; 
-    }
-  }
-}
+  
 function SetCookie (name, value) {
 var argv = SetCookie.arguments;
 var argc = SetCookie.arguments.length;
@@ -160,7 +139,29 @@ var expdate = new Date();
 expdate.setTime(expdate.getTime() +  (24 * 60 * 60 * 1000 * 365)); 
 visit = 0;
 SetCookie("visit", visit, expdate , "/", null, false);
-history.go(0);
+history.go(10);
+}
+
+function move() {
+  var elem = document.getElementById("shadow"); 
+  var moon = document.getElementById("moon");  
+  var width = 0;
+  var height = 0;
+  var id = setInterval(frame, 50);
+  function frame() {
+    if (visit ==3) {
+      elem.style.width = width + '20%';
+    } else {
+      width++;
+    }   
+
+     if (height > 65) {
+      clearInterval(id);
+    } else {
+      height++; 
+      elem.style.height = height + '%'; 
+    }
+  }
 }
 
 window.onload=DisplayInfo
