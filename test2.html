@@ -63,57 +63,6 @@
   <div id="shadow"></div>
 <script type="text/javascript">
 
-    var allCircles =  [],
-    circle     =  '<div class="circle" />';
-
-    if(Cookies.getJSON('circles')){ // if the cookie already exists
-    
-      // get the contents of the cookie and equate it to a variable:
-      var existingCircles = Cookies.getJSON('circles'); 
-
-      /* Now we want to iterate through our retrieved array and output each value */
-      for (var i = 0; i < existingCircles.length; i++) { // for loop that appends each circle to the DOM
-          $(".container").append(existingCircles[i]); 
-      }
-
-      // once the loop is done appending the circles, create a new circle:
-      existingCircles.push(circle);
-      Cookies.set('circles', existingCircles, {expires: 10});
-
-
-    }else{ // if the cookie doesn't already exist
-
-        allCircles.push(circle); //push the first 'circle' the array allCircles
-        Cookies.set('circles', allCircles, {expires: 10}); // set the cookie 'circles', define its value, and its expiration date
-    }
-
-
-
-
-
-    function move() {
-  var elem = document.getElementById("shadow"); 
-  var moon = document.getElementById("moon");  
-  var width = 0;
-  var height = 0;
-  var id = setInterval(frame, 50);
-  function frame() {
-    if (width > 65) {
-      clearInterval(id);
-    } else {
-      width++; 
-      elem.style.width = width + '%'; 
-    }   
-
-     if (height > 65) {
-      clearInterval(id);
-    } else {
-      height++; 
-      elem.style.height = height + '%'; 
-    }
-  }
-}
-
 
 
 function getCookieVal (offset) {
@@ -136,6 +85,28 @@ if (i == 0)
 break; 
 }
 return null;
+}
+  function move() {
+  var elem = document.getElementById("shadow"); 
+  var moon = document.getElementById("moon");  
+  var width = 0;
+  var height = 0;
+  var id = setInterval(frame, 50);
+  function frame() {
+    if (width > 65) {
+      clearInterval(id);
+    } else {
+      width++; 
+      elem.style.width = width + '%'; 
+    }   
+
+     if (height > 65) {
+      clearInterval(id);
+    } else {
+      height++; 
+      elem.style.height = height + '%'; 
+    }
+  }
 }
 function SetCookie (name, value) {
 var argv = SetCookie.arguments;
@@ -160,25 +131,25 @@ visit++;
 SetCookie("visit", visit, expdate, "/", null, false);
 var message;
 if(visit == 1) 
-message="         Welcome to my page!";
+message="         🌚";
 if(visit== 2) 
-message="           I see you came back !";
+message="           🌘";
 if(visit == 3) 
-message="               Oh, it's you again!";
+message="               🌙";
 if(visit == 4)
-message="            You must be curious!"; 
+message="            🌗"; 
 if(visit == 5) 
-message="      You're practically a regular!";
+message="      🌜";
 if(visit == 6) 
-message="              You need a hobby!";
+message="               🌖";
 if(visit == 7)
-message="             Nothing better to do?"; 
+message="             🌕"; 
 if(visit == 8) 
-message="            Don't you ever sleep?";
+message="            🌝";
 if(visit == 9)
-message="                      Get a life!!!"; 
+message="                     🌒"; 
 if(visit >= 10) 
-message="  Rent is due on the 1st of the month!";
+message="         🌓";
   alert("\n"+"Your browser has visited this page               \n"
             +"                              "+visit+"\n"
             +"                          time(s)."+"\n"+"\n"
