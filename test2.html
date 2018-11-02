@@ -190,7 +190,7 @@ history.go(10);
 
 
 
-//function move() {
+function move() {
 var expdate = new Date();
 var visit;
 expdate.setTime(expdate.getTime() +  (24 * 60 * 60 * 1000 * 365)); 
@@ -204,7 +204,7 @@ SetCookie("visit", visit, expdate, "/", null, false);
   var id = setInterval(frame, 50);
   function frame() {
 
-    ///if (visit) {
+    if (visit) {
       elem.style.width = '35vw';
       elem.style.height = '35vw';
       elem.style.border = '50vw';
