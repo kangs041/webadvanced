@@ -162,11 +162,11 @@ SetCookie("visit", visit, expdate, "/", null, false);
       elem.style.width = '10vw';
     }   
 
-     if (height > 65) {
-      clearInterval(id);
+     if (visit>3) {
+      elem.style.width = '30vw';
     } else {
       height++; 
-      elem.style.height = height + '%'; 
+      elem.style.width = '30vw';
     }
   }
 }
