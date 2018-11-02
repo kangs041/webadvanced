@@ -13,9 +13,11 @@
     background-attachment: fixed;
   }
   .container{
-      width: 100vw;
-      top:0vw;
-      left: 0vw;
+      width: 65vw;
+      height: 65vw;
+      border-radius: 50vw;
+      margin-top:0vw;
+      margin-left: 20vw;
     }
   #moon{
     height:65vw;
@@ -159,9 +161,12 @@ SetCookie("visit", visit, expdate, "/", null, false);
       elem.style.width = '10vw';
       elem.style.height= '10vw';
       elem.style.border= '100px';
+      elem.style.paddingRight= '30px';
     } 
      if (visit>3) {
-      elem.style.width = '30vw';
+      elem.style.width = '20vw';
+      elem.style.height = '20vw';
+      elem.style.border = '100px';
     } 
   }
 }
