@@ -1,13 +1,40 @@
 <!DOCTYPE html>
 <html>
-<title>W3.CSS</title>
+<title>MOON</title>
   <style type="text/css">
   html {
     background-color: black;
   }
+  body {
+    ///background-image: url("background.png");
+    width: 100vw;
+    height: 100vw;
+    top:0vw;
+    background-attachment: fixed;
+  }
   .container{
       width: 100vw;
+      top:0vw;
+      left: 0vw;
     }
+  #moon{
+    height:65vw;
+    width:65vw; 
+    background-image: linear-gradient(to top, #678ec8, #7e92d7, #9a95e3, #b996eb, #d996ee);
+     border-radius: 50vw;
+    margin-top:0px; 
+    margin-left: 20vw;
+    position: absolute;
+  }
+  #shadow{
+    height:65vw;
+    width:65vw; 
+    background-color: black; 
+    border-radius: 50vw;
+    margin-top:0px; 
+    margin-left: 20vw; 
+    position: relative;  
+  }
   .circle {
     widows: 10px;
     height: 10px;
@@ -15,7 +42,7 @@
   }
 
   </style>
-  <script
+    <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
@@ -23,60 +50,37 @@
   <!-- Load the javascript cookie library -->
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 
-  <div id="box" style="height:40vw;width:40vw; 
-    background-image: linear-gradient(to top, #678ec8, #7e92d7, #9a95e3, #b996eb, #d996ee); border-radius: 50vw; margin-top:50px; margin-left: 20vw;"></div>
-  </div>
 <body>
-
-  <br>
+    <br>
   <button onclick="move()">Click Me</button> 
 </div>
   <div class="container"></div>
-<script>
-
-    var allCircles = [],
-        circle = "<div class='circle'></div>"; // create an empty array (allCircles) and a string to repeatedly add to the array
-
-    
-    if (Cookies.getJSON('allCircles')) { // check if there is a cookie named "allCircles"
-
-      console.log("there are cookies!");
-      allCircles = Cookies.getJSON('allCircles'); // if there is a cookie named "allCircles", update existing array to reflect this
-
-      for (var i = 0; i < allCircles.length; i++) {
-        $(".container").append(allCircles[i]); // cycle through (updated) array and populate the DOM with the circles
-      }
-    }
-
-
-    $("body").click(function(){
-      $(".container").append(circle); // add circle to DOM
-      allCircles.push(circle); // add circle to array 
-      Cookies.set('allCircles', allCircles, {expires: 10}); // add array of circles to cookie
-    })
-
+  <div id="moon"></div>
+  <div id="shadow"></div>
+<script type="text/javascript">
 
 
 
 
     function move() {
-  var elem = document.getElementById("box");   
-  var width = 1;
-  var height = 1;
-  var id = setInterval(frame, 100);
+  var elem = document.getElementById("shadow"); 
+  var moon = document.getElementById("moon");  
+  var width = 0;
+  var height = 0;
+  var id = setInterval(frame, 50);
   function frame() {
-    if (width >= 40) {
+    if (width > 65) {
       clearInterval(id);
     } else {
       width++; 
       elem.style.width = width + '%'; 
     }   
 
-     if (height >= 40) {
+     if (height > 65) {
       clearInterval(id);
     } else {
-      height--; 
-      elem.style.height = height - '%'; 
+      height++; 
+      elem.style.height = height + '%'; 
     }
   }
 }

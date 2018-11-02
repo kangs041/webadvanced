@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<title>MOONtest</title>
+  <style type="text/css">
+  html {
+    background-color: black;
+  }
+  body {
+    ///background-image: url("background.png");
+    width: 100vw;
+    height: 100vw;
+    top:0vw;
+    background-attachment: fixed;
+  }
+  .container{
+      width: 100vw;
+      top:0vw;
+      left: 0vw;
+    }
+  #moon{
+    height:65vw;
+    width:65vw; 
+    background-image: linear-gradient(to top, #678ec8, #7e92d7, #9a95e3, #b996eb, #d996ee);
+     border-radius: 50vw;
+    margin-top:0px; 
+    margin-left: 20vw;
+    position: absolute;
+  }
+  #circle{
+    height:65vw;
+    width:65vw; 
+    background-color: black; 
+    border-radius: 50vw;
+    margin-top:0px; 
+    margin-left: 20vw; 
+    position: relative;  
+  }
+
+  </style>
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+  <!-- Load the javascript cookie library -->
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+
+<body>
+    <br>
+  <button onclick="move()">Click Me</button> 
+</div>
+  <div class="container"></div>
+  <div id="moon"></div>
+  <div id="shadow"></div>
+<script type="text/javascript">
+
+
+    var allCircles = [],
+        circle = "<div class='circle'></div>"; // create an empty array (allCircles) and a string to repeatedly add to the array
+
+    
+    if (Cookies.getJSON('allCircles')) { // check if there is a cookie named "allCircles"
+
+      console.log("there are cookies!");
+      allCircles = Cookies.getJSON('allCircles'); // if there is a cookie named "allCircles", update existing array to reflect this
+
+      for (var i = 0; i < allCircles.length; i++) {
+        $(".container").append(allCircles[i]); // cycle through (updated) array and populate the DOM with the circles
+      }
+    }
+
+
+    $("body").click(function(){
+      $(".container").append(circle); // add circle to DOM
+      allCircles.push(circle); // add circle to array 
+      Cookies.set('allCircles', allCircles, {expires: 10}); // add array of circles to cookie
+    })
+    
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html> 
