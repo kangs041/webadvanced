@@ -156,6 +156,8 @@ SetCookie("visit", visit, expdate, "/", null, false);
   var id = setInterval(frame, 50);
   function frame() {
     if (visit >2 ) {
+      width++;
+      height++;
       elem.style.width = '10vw';
       elem.style.height= '10vw';
       elem.style.border= '50vw';
@@ -163,6 +165,8 @@ SetCookie("visit", visit, expdate, "/", null, false);
       elem.style.margin-top= '24vw';
     } 
      if (visit>3) {
+      width++;
+      height++;
       elem.style.width = '20vw';
       elem.style.height = '20vw';
       elem.style.border = '50vw';
