@@ -114,6 +114,11 @@ SetCookie("visit", visit, expdate, "/", null, false);
 var message;
 if(visit == 1) 
 message="         🌚";
+      elem.style.width = '10vw';
+      elem.style.height= '10vw';
+      elem.style.border= '50vw';
+      elem.style.marginleft= '83px';
+      elem.style.margintop= '110px';
 if(visit== 2) 
 message="           🌘";
       elem.style.width = '20vw';
@@ -123,6 +128,11 @@ message="           🌘";
       elem.style.margintop= '110px';
 if(visit == 3) 
 message="               🌙";
+      elem.style.width = '30vw';
+      elem.style.height = '30vw';
+      elem.style.border = '50vw';
+      elem.style.marginleft= '90px';
+      elem.style.margintop= '110px';
 if(visit == 4)
 message="            🌗"; 
 if(visit == 5) 
@@ -162,27 +172,7 @@ SetCookie("visit", visit, expdate, "/", null, false);
   var height = 0;
   var id = setInterval(frame, 50);
   function frame() {
-    if (visit >2 ) {
-      elem.style.width = '10vw';
-      elem.style.height= '10vw';
-      elem.style.border= '50vw';
-      elem.style.marginleft= '83px';
-      elem.style.margintop= '110px';
-    } 
-     if (visit>3) {
-      elem.style.width = '20vw';
-      elem.style.height = '20vw';
-      elem.style.border = '50vw';
-      elem.style.marginleft= '80px';
-      elem.style.margintop= '110px';
-    } 
-     if (visit>4) {
-      elem.style.width = '30vw';
-      elem.style.height = '30vw';
-      elem.style.border = '50vw';
-      elem.style.marginleft= '90px';
-      elem.style.margintop= '110px';
-    } 
+
     if (visit>5) {
       elem.style.width = '35vw';
       elem.style.height = '35vw';
