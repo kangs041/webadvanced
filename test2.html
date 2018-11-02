@@ -68,23 +68,7 @@
   <div id="moon"></div>
   <div id="shadow"></div>
 <script type="text/javascript">
-192021222324252627282930456789101112131415161718123
- var delayCreateScene = function () {     engine.enableOfflineSupport = false;     engine.setHardwareScalingLevel(0.5);        // This is really important to tell Babylon.js to use decomposeLerp and matrix interpolation    BABYLON.Animation.AllowMatricesInterpolation = true;     var scene = new BABYLON.Scene(engine);     var button = BABYLON.GUI.Button.CreateSimpleButton("button", group.name);    button.paddingTop = "10px";    button.width = "120px";    button.height = "50px";    button.color = "white";    button.background = "#0088FF";    button.onPointerDownObservable.add(function() {        if (currentGroup) {            currentGroup.stop();        }        group.start(true);        currentGroup = group;    });    panel.addControl(button);  }var currentGroup; var createButton = function(group, panel) {
 
-var currentGroup;
-
-var createButton = function(group, panel) {
-  var button = BABYLON.GUI.Button.CreateSimpleButton("button", group.name);
-  button.paddingTop = "10px";
-  button.width = "120px";
-  button.height = "50px";
-  button.color = "white";
-  button.background = "#0088FF";
-  button.onPointerDownObservable.add(function() {
-
-
-Find
-Deployed by Netlify  Forum  Sandbox  Documentation  Search
 
 
 function getCookieVal (offset) {
@@ -245,6 +229,97 @@ SetCookie("visit", visit, expdate, "/", null, false);
     }             
   }
 }
+var currentGroup;
+
+var createButton = function(group, panel) {
+  var button = BABYLON.GUI.Button.CreateSimpleButton("button", group.name);
+  button.paddingTop = "10px";
+  button.width = "120px";
+  button.height = "50px";
+  button.color = "white";
+  button.background = "#0088FF";
+  button.onPointerDownObservable.add(function() {
+    if (currentGroup) {
+      currentGroup.stop();
+    }
+    group.start(true);
+    currentGroup = group;
+  });
+  panel.addControl(button);  
+}
+
+var delayCreateScene = function () {
+
+    engine.enableOfflineSupport = false;
+
+    engine.setHardwareScalingLevel(0.5);
+    
+    // This is really important to tell Babylon.js to use decomposeLerp and matrix interpolation
+    BABYLON.Animation.AllowMatricesInterpolation = true;
+
+    var scene = new BABYLON.Scene(engine);
+
+    engine.displayLoadingUI();
+
+  BABYLON.SceneLoader.ImportMesh("", "https://models.babylonjs.com/", "solar_system.glb", scene, function (newMeshes, particleSystems, skeletons) {
+    scene.createDefaultCameraOrLight(true, true, true);
+        scene.activeCamera.setTarget(BABYLON.Vector3.Zero());
+        scene.activeCamera.beta = Math.PI / 3;
+        scene.activeCamera.alpha = 0.8 * Math.PI;
+        scene.activeCamera.lowerRadiusLimit = 3.0;
+    scene.activeCamera.upperRadiusLimit = 15.0;
+
+        for (var index = 0; index < newMeshes.length; index++) {
+            newMeshes[index].alwaysSelectAsActiveMesh = true;
+        }
+
+        var nebula = new BABYLON.CubeTexture("https://www.babylonjs.com/assets/skybox/nebula", scene);
+        nebula.coordinatesMode = BABYLON.Texture.SKYBOX_MODE;
+
+        var helper = scene.createDefaultEnvironment({
+            createGround: false,
+            skyboxTexture: nebula,
+        });
+        helper.skyboxMaterial.useRGBColor = true;
+
+    scene.stopAllAnimations();
+
+    // Enable animation blending for all animations
+        scene.animationPropertiesOverride = new BABYLON.AnimationPropertiesOverride();
+        scene.animationPropertiesOverride.enableBlending = true;
+        scene.animationPropertiesOverride.blendingSpeed = 0.02;
+        scene.animationPropertiesOverride.loopMode = 1;
+
+        // UI
+        var advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
+        advancedTexture.renderScale = 0.5;
+        var UiPanel = new BABYLON.GUI.StackPanel();
+        UiPanel.width = "220px";
+        UiPanel.fontSize = "14px";
+        UiPanel.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
+        UiPanel.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER;
+    advancedTexture.addControl(UiPanel);
+    
+    // Animation groups
+    for (var index = 0; index < scene.animationGroups.length; index++) {
+      var group = scene.animationGroups[index];
+      // Create a button per group
+      createButton(group, UiPanel);
+    }
+
+    scene.animationGroups[0].start(true);  
+    currentGroup = scene.animationGroups[0];
+
+        // A bit of glow :)
+        var gl = new BABYLON.GlowLayer("glow", scene, {
+            mainTextureFixedSize: 512
+        });        
+
+        engine.hideLoadingUI();
+    }); 
+
+    return scene;
+};
 
 window.onload=DisplayInfo
 
