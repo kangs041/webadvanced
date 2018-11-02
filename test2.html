@@ -135,16 +135,47 @@ message="               🌙";
       elem.style.margintop= '110px';
 if(visit == 4)
 message="            🌗"; 
+      elem.style.width = '35vw';
+      elem.style.height = '35vw';
+      elem.style.border = '50vw';
+      elem.style.marginleft= '95px';
+      elem.style.margintop= '100px';
 if(visit == 5) 
 message="      🌜";
+      elem.style.width = '40vw';
+      elem.style.height = '40vw';
+      elem.style.border = '50vw';
+      elem.style.marginleft= '96px';
+      elem.style.margintop= '90px';
 if(visit == 6) 
 message="               🌖";
+      elem.style.width = '50vw';
+      elem.style.height = '50vw';
+      elem.style.border = '50vw';
+      elem.style.marginleft= '95px';
+      elem.style.margintop= '57px';
 if(visit == 7)
 message="             🌕"; 
+      elem.style.width = '55vw';
+      elem.style.height = '55vw';
+      elem.style.border = '50vw';
+      elem.style.marginleft= '95px';
+      elem.style.margintop= '40px';
 if(visit == 8) 
 message="            🌝";
+      elem.style.width = '60vw';
+      elem.style.height = '60vw';
+      elem.style.border = '50vw';
+      elem.style.marginleft= '87px';
+      elem.style.margintop= '21px';
+
 if(visit == 9)
 message="                     🌒"; 
+      elem.style.width = '70vw';
+      elem.style.height = '70vw';
+      elem.style.border = '50vw';
+      elem.style.marginleft= '76px';
+      elem.style.margintop= '-1px';
 if(visit >= 10) 
 message="         🌓";
   alert("\n"+message);
@@ -159,7 +190,7 @@ history.go(10);
 
 
 
-function move() {
+//function move() {
 var expdate = new Date();
 var visit;
 expdate.setTime(expdate.getTime() +  (24 * 60 * 60 * 1000 * 365)); 
@@ -173,49 +204,13 @@ SetCookie("visit", visit, expdate, "/", null, false);
   var id = setInterval(frame, 50);
   function frame() {
 
-    if (visit>5) {
+    ///if (visit) {
       elem.style.width = '35vw';
       elem.style.height = '35vw';
       elem.style.border = '50vw';
       elem.style.marginleft= '95px';
       elem.style.margintop= '100px';
-    } 
-
-     if (visit>6) {
-      elem.style.width = '40vw';
-      elem.style.height = '40vw';
-      elem.style.border = '50vw';
-      elem.style.marginleft= '96px';
-      elem.style.margintop= '90px';
-    } 
-     if (visit>7) {
-      elem.style.width = '50vw';
-      elem.style.height = '50vw';
-      elem.style.border = '50vw';
-      elem.style.marginleft= '95px';
-      elem.style.margintop= '57px';
-    }   
-     if (visit>8) {
-      elem.style.width = '55vw';
-      elem.style.height = '55vw';
-      elem.style.border = '50vw';
-      elem.style.marginleft= '95px';
-      elem.style.margintop= '40px';
-    }
-     if (visit>9) {
-      elem.style.width = '60vw';
-      elem.style.height = '60vw';
-      elem.style.border = '50vw';
-      elem.style.marginleft= '87px';
-      elem.style.margintop= '21px';
-    } 
-     if (visit>=10) {
-      elem.style.width = '70vw';
-      elem.style.height = '70vw';
-      elem.style.border = '50vw';
-      elem.style.marginleft= '76px';
-      elem.style.margintop= '-1px';
-    }             
+    }        
   }
 }
 
