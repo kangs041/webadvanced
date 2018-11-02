@@ -142,18 +142,24 @@ history.go(10);
 }
 
 function move() {
+var expdate = new Date();
+var visit;
+expdate.setTime(expdate.getTime() +  (24 * 60 * 60 * 1000 * 365)); 
+if(!(visit = GetCookie("visit"))) 
+visit = 0;
+visit++;
+SetCookie("visit", visit, expdate, "/", null, false);  
   var elem = document.getElementById("shadow"); 
   var moon = document.getElementById("moon");  
   var width = 0;
   var height = 0;
-  var visit;
   var id = setInterval(frame, 50);
   function frame() {
-    if (width >65 ) {
-      clearInterval(id);
+    if (visit >2 ) {
+      elem.style.width = '10vw';
     } else {
       width++;
-      elem.style.width = '10%';
+      elem.style.width = '10vw';
     }   
 
      if (height > 65) {
